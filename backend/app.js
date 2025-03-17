@@ -5,7 +5,7 @@ import loginRoutes from './routes/loginRoutes.js';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
-import cors from 'cors;'
+import cors from 'cors';
 import registerRoutes from './routes/registerRoutes.js';
 
 dotenv.config();
@@ -22,6 +22,10 @@ mongoose.connect(process.env.MONGO_URI)
     .catch(err => console.error(err));
 
 
+// Enable CORS
+app.use(cors({ origin: 'http://127.0.0.1:5500' }));
+
+
 // Routes
 app.use('/api/register', registerRoutes);
 
@@ -33,5 +37,6 @@ app.listen(PORT, () => {
 // loginRoutes
 app.use('/api/login', loginRoutes);
 
-//cors
-app.use(cors());
+
+
+
