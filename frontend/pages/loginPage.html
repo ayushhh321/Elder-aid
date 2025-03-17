@@ -138,32 +138,45 @@
     </footer>
 
     <script>
-        document.getElementById('login-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
+        document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
 
-            try {
-                const response = await fetch('http://localhost:3000/api/login', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email, password })
-                });
+        try {
+            const response = await fetch('http://localhost:3000/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password })
+            });
 
-                const data = await response.json();
+            const data = await response.json();
 
-                if (response.ok) {
-                    alert('Login successful');
+            if (response.ok) {
+                // Store user data in localStorage
+                localStorage.setItem('userId', data.userId);
+                localStorage.setItem('userType', data.userType);
+                localStorage.setItem('userName', data.name);
+
+                alert('Login successful!');
+                
+                // Redirect based on user type
+                if (data.userType === 'elderly') {
                     window.location.href = 'dashboard.html';
-                } else {
-                    alert(data.error || 'Login failed');
+                } else if (data.userType === 'volunteer') {
+                    window.location.href = 'volunteer.html';
                 }
-            } catch (error) {
-                console.error('Error during login:', error);
-                alert('An error occurred. Please try again.');
+            } else {
+                alert(data.error || 'Login failed');
             }
-        });
+        } catch (error) {
+            console.error('Error during login:', error);
+            alert('An error occurred. Please try again.');
+        }
+    });
+});
     </script>
 </body>
 </html>
