@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Elderly Assistance Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            padding: 1rem 2rem;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .logo a {
+            display: flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 15px;
+            border-radius: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .logout-btn {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .logout-btn i {
+            margin-right: 5px;
+        }
+
+        .logout-btn:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .terms-banner {
+            background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+            padding: 3rem 2rem;
+            margin-bottom: 2rem;
+            border-radius: 0 0 20px 20px;
+            text-align: center;
+        }
+
+        .terms-banner h1 {
+            color: #0277bd;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+
+        .terms-banner p {
+            color: #546e7a;
+            font-size: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .terms-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .terms-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .terms-section h2 {
+            color: #6a11cb;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e0f7fa;
+        }
+
+        .terms-section h3 {
+            color: #2575fc;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .terms-section p, .terms-section li {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .terms-section ul, .terms-section ol {
+            padding-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .terms-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .last-updated {
+            font-style: italic;
+            color: #666;
+            text-align: right;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+        }
+
+        .terms-jump-links {
+            background-color: #f0f7ff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .terms-jump-links h3 {
+            margin-bottom: 1rem;
+            color: #2575fc;
+        }
+
+        .terms-jump-links ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .terms-jump-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .terms-jump-links a {
+            color: #6a11cb;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .terms-jump-links a i {
+            margin-right: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        .terms-jump-links a:hover {
+            color: #2575fc;
+            transform: translateX(5px);
+        }
+
+        .terms-highlight {
+            background-color: #fff8e1;
+            padding: 1.5rem;
+            border-left: 4px solid #ffca28;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+
+        .terms-highlight h4 {
+            color: #f57c00;
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .footer-column p {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-column a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-column a:hover {
+            text-decoration: underline;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .navbar {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                margin-top: 1rem;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .terms-container {
+                padding: 1.5rem;
+            }
+
+            .terms-banner h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="../pages/index.html">
+                    <img src="../images/logo-placeholder.png" alt="Elderly Assistance Portal Logo">
+                    <h1>Elderly Assistance Portal</h1>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <!-- <a href="#">Services</a> -->
+                <a href="faq.html">FAQs</a>
+                <a href="#">Contact</a>
+                <!-- <button class="logout-btn" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button> -->
+            </div>
+        </nav>
+    </header>
+
+    <div class="terms-banner">
+        <h1>Terms of Service</h1>
+        <p>Please read these Terms of Service carefully before using the Elderly Assistance Portal. By accessing or using our service, you agree to be bound by these terms.</p>
+    </div>
+
+    <div class="terms-container">
+        <div class="terms-jump-links">
+            <h3>Quick Navigation</h3>
+            <ul>
+                <li><a href="#acceptance"><i class="fas fa-angle-right"></i> Acceptance of Terms</a></li>
+                <li><a href="#eligibility"><i class="fas fa-angle-right"></i> Eligibility</a></li>
+                <li><a href="#accounts"><i class="fas fa-angle-right"></i> User Accounts</a></li>
+                <li><a href="#services"><i class="fas fa-angle-right"></i> Service Description</a></li>
+                <li><a href="#payments"><i class="fas fa-angle-right"></i> Payments & Fees</a></li>
+                <li><a href="#responsibilities"><i class="fas fa-angle-right"></i> User Responsibilities</a></li>
+                <li><a href="#volunteer"><i class="fas fa-angle-right"></i> Volunteer Obligations</a></li>
+                <li><a href="#elderly"><i class="fas fa-angle-right"></i> Elderly User Obligations</a></li>
+                <li><a href="#background"><i class="fas fa-angle-right"></i> Background Checks</a></li>
+                <li><a href="#liability"><i class="fas fa-angle-right"></i> Limitation of Liability</a></li>
+                <li><a href="#termination"><i class="fas fa-angle-right"></i> Termination</a></li>
+                <li><a href="#changes"><i class="fas fa-angle-right"></i> Changes to Terms</a></li>
+                <li><a href="#contact"><i class="fas fa-angle-right"></i> Contact Us</a></li>
+            </ul>
+        </div>
+
+        <div class="terms-section" id="acceptance">
+            <h2>1. Acceptance of Terms</h2>
+            <p>By accessing or using the Elderly Assistance Portal (the "Service"), you agree to be bound by these Terms of Service ("Terms"), our Privacy Policy, and any additional terms and conditions that may apply to specific sections of the Service. If you do not agree with any of these terms, you are prohibited from using or accessing this Service.</p>
+        </div>
+
+        <div class="terms-section" id="eligibility">
+            <h2>2. Eligibility</h2>
+            <p>To use our Service, you must be:</p>
+            <ul>
+                <li>At least 18 years of age for volunteer accounts</li>
+                <li>At least 60 years of age for elderly user accounts, or have authorization to act on behalf of an elderly individual</li>
+                <li>Able to form a legally binding contract</li>
+                <li>Not prohibited from using the Service under applicable laws</li>
+            </ul>
+            <p>By using our Service, you represent and warrant that you meet all eligibility requirements.</p>
+        </div>
+
+        <div class="terms-section" id="accounts">
+            <h2>3. User Accounts</h2>
+            <p>When you create an account with us, you must provide accurate, complete, and current information. Failure to do so constitutes a breach of the Terms, which may result in immediate termination of your account.</p>
+            
+            <p>You are responsible for:</p>
+            <ul>
+                <li>Maintaining the confidentiality of your account password</li>
+                <li>All activities that occur under your account</li>
+                <li>Notifying us immediately of any unauthorized use of your account or other security breaches</li>
+            </ul>
+            
+            <p>We reserve the right to remove, reclaim, or change a username you select if we determine, in our sole discretion, that such username is inappropriate, obscene, or otherwise objectionable.</p>
+        </div>
+
+        <div class="terms-section" id="services">
+            <h2>4. Service Description</h2>
+            <p>The Elderly Assistance Portal is a platform designed to connect elderly individuals with volunteers who can provide various forms of assistance, including but not limited to:</p>
+            <ul>
+                <li>Grocery shopping and delivery</li>
+                <li>Transportation services</li>
+                <li>Companionship</li>
+                <li>Healthcare support</li>
+                <li>Personalized care services</li>
+            </ul>
+            
+            <p>Our Service includes:</p>
+            <ul>
+                <li>Profile creation for elderly users and volunteers</li>
+                <li>Request submission and management system</li>
+                <li>Volunteer matching based on specified criteria</li>
+                <li>In-platform communication tools</li>
+                <li>Payment processing system</li>
+                <li>Rating and feedback mechanisms</li>
+            </ul>
+            
+            <p>We strive to provide the best possible experience, but we do not guarantee that the Service will always be secure, error-free, or available at all times.</p>
+        </div>
+
+        <div class="terms-highlight">
+            <h4>Important Notice</h4>
+            <p>The Elderly Assistance Portal is a matching platform and does not employ volunteers directly. We facilitate connections between elderly users and volunteers but are not a provider of care services. We do not guarantee the quality, safety, or legality of services provided by volunteers.</p>
+        </div>
+
+        <div class="terms-section" id="payments">
+            <h2>5. Payments & Fees</h2>
+            <p>Our Service includes a payment system to compensate volunteers for their services:</p>
+            <ul>
+                <li>Elderly users can set budgets for requested services</li>
+                <li>Volunteers can set their rates for different types of services</li>
+                <li>Payment terms are agreed upon between elderly users and volunteers</li>
+                <li>The platform may charge service fees for facilitating matches and payments</li>
+            </ul>
+            
+            <h3>Payment Processing</h3>
+            <p>When you make or receive payments through our Service:</p>
+            <ul>
+                <li>You authorize us to charge or credit your payment method</li>
+                <li>You agree to provide accurate and complete payment information</li>
+                <li>You acknowledge that payment processing may be handled by third-party payment processors</li>
+                <li>You understand that payment fees may apply</li>
+            </ul>
+            
+            <h3>Refunds</h3>
+            <p>Refund policies are subject to the arrangement between elderly users and volunteers. However, in cases of dispute, we reserve the right to mediate and issue refunds at our discretion.</p>
+        </div>
+
+        <div class="terms-section" id="responsibilities">
+            <h2>6. User Responsibilities</h2>
+            <p>All users of the Service agree to:</p>
+            <ul>
+                <li>Provide accurate information in profiles and communications</li>
+                <li>Use the Service in a lawful manner and in accordance with these Terms</li>
+                <li>Respect the privacy and rights of other users</li>
+                <li>Communicate respectfully with other users</li>
+                <li>Not engage in discriminatory, harassing, or harmful behavior</li>
+                <li>Not use the Service for any illegal or unauthorized purpose</li>
+                <li>Not attempt to impersonate another user or gain unauthorized access to any systems or networks</li>
+            </ul>
+        </div>
+
+        <div class="terms-section" id="volunteer">
+            <h2>7. Volunteer Obligations</h2>
+            <p>Volunteers using our Service agree to:</p>
+            <ul>
+                <li>Provide services safely, competently, and respectfully</li>
+                <li>Honor commitments made to elderly users</li>
+                <li>Accurately represent skills, qualifications, and availability</li>
+                <li>Maintain appropriate professional boundaries</li>
+                <li>Comply with all applicable laws and regulations</li>
+                <li>Complete necessary background checks</li>
+                <li>Maintain confidentiality regarding elderly users' personal information</li>
+                <li>Promptly report any incidents or concerns to the platform</li>
+                <li>Not delegate assigned tasks to other individuals not registered on the platform</li>
+            </ul>
+            
+            <p>Volunteers acknowledge that they are independent contractors, not employees of the Elderly Assistance Portal. Volunteers are responsible for their own taxes, insurance, and compliance with all applicable employment laws.</p>
+        </div>
+
+        <div class="terms-section" id="elderly">
+            <h2>8. Elderly User Obligations</h2>
+            <p>Elderly users of our Service agree to:</p>
+            <ul>
+                <li>Provide accurate information about needs and requirements</li>
+                <li>Treat volunteers with respect and dignity</li>
+                <li>Provide a safe environment for service provision</li>
+                <li>Honor payment commitments for services received</li>
+                <li>Communicate clearly regarding expectations and feedback</li>
+                <li>Promptly report any incidents or concerns to the platform</li>
+                <li>Not request services that are illegal, dangerous, or outside the scope of the platform</li>
+            </ul>
+        </div>
+
+        <div class="terms-section" id="background">
+            <h2>9. Background Checks</h2>
+            <p>To ensure the safety of our community:</p>
+            <ul>
+                <li>All volunteers must undergo background checks before providing services</li>
+                <li>Volunteers authorize us to conduct these checks and share relevant results with elderly users</li>
+                <li>Background check results may affect eligibility to provide services</li>
+                <li>Volunteers must disclose any relevant changes in their background during their use of the platform</li>
+            </ul>
+            
+            <p>While we conduct background checks, we cannot guarantee the accuracy or completeness of these checks or the conduct of volunteers. Elderly users should exercise appropriate caution and judgment.</p>
+        </div>
+
+        <div class="terms-section" id="liability">
+            <h2>10. Limitation of Liability</h2>
+            <p>To the maximum extent permitted by law:</p>
+            <ul>
+                <li>The Elderly Assistance Portal is provided "as is" without warranties of any kind</li>
+                <li>We do not guarantee the accuracy, reliability, or performance of the Service</li>
+                <li>We are not responsible for the actions or omissions of users</li>
+                <li>We shall not be liable for any indirect, incidental, special, consequential, or punitive damages</li>
+                <li>Our liability to you shall not exceed the amount you have paid to us in the 12 months preceding any claim</li>
+            </ul>
+            
+            <p>You agree to indemnify and hold harmless the Elderly Assistance Portal, its employees, officers, directors, and agents from any claims, damages, or expenses arising from your use of the Service or violation of these Terms.</p>
+        </div>
+
+        <div class="terms-section" id="termination">
+            <h2>11. Termination</h2>
+            <p>We may terminate or suspend your account immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.</p>
+            
+            <p>Upon termination, your right to use the Service will immediately cease. If you wish to terminate your account, you may simply discontinue using the Service or delete your account through the platform.</p>
+            
+            <p>All provisions of the Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity, and limitations of liability.</p>
+        </div>
+
+        <div class="terms-section" id="changes">
+            <h2>12. Changes to Terms</h2>
+            <p>We reserve the right to modify or replace these Terms at any time. If a revision is material, we will try to provide at least 30 days' notice before any new terms take effect. What constitutes a material change will be determined at our sole discretion.</p>
+            
+            <p>By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, please stop using the Service.</p>
+        </div>
+
+        <div class="terms-section" id="contact">
+            <h2>13. Contact Us</h2>
+            <p>If you have any questions about these Terms, please contact us at:</p>
+            
+            <p>
+                <strong>Email:</strong> terms@elderlyassistance.org<br>
+                <strong>Phone:</strong> 1-800-555-HELP<br>
+                <strong>Mail:</strong> Elderly Assistance Portal<br>
+                123 Care Street<br>
+                Compassion City, ST 12345<br>
+                United States
+            </p>
+        </div>
+
+        <p class="last-updated">Last Updated: March 19, 2025</p>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>About Us</h4>
+                <p>Elderly Assistance Portal connects seniors with volunteers and services to improve quality of life and independence.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <!-- <a href="#">Services</a> -->
+                <a href="faq.html">FAQs</a>
+                <a href="contact">Contact Us</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms_of_service.html">Terms of Service</a>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <p><i class="fas fa-phone"></i> Helpline: 1-800-555-HELP</p>
+                <p><i class="fas fa-envelope"></i> support@elderlyassistance.org</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Elderly Assistance Portal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function logout() {
+            // Add logout functionality here
+            alert("Logout functionality will be implemented here");
+            window.location.href = "../pages/index.html";
+        }
+    </script>
+</body>
+
+</html>

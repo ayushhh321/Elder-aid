@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Elderly Assistance Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            padding: 1rem 2rem;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .logo a {
+            display: flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 15px;
+            border-radius: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .logout-btn {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .logout-btn i {
+            margin-right: 5px;
+        }
+
+        .logout-btn:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .privacy-banner {
+            background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+            padding: 3rem 2rem;
+            margin-bottom: 2rem;
+            border-radius: 0 0 20px 20px;
+            text-align: center;
+        }
+
+        .privacy-banner h1 {
+            color: #0277bd;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+
+        .privacy-banner p {
+            color: #546e7a;
+            font-size: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .privacy-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .privacy-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .privacy-section h2 {
+            color: #6a11cb;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e0f7fa;
+        }
+
+        .privacy-section h3 {
+            color: #2575fc;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .privacy-section p, .privacy-section li {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .privacy-section ul, .privacy-section ol {
+            padding-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .privacy-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .last-updated {
+            font-style: italic;
+            color: #666;
+            text-align: right;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+        }
+
+        .privacy-jump-links {
+            background-color: #f0f7ff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .privacy-jump-links h3 {
+            margin-bottom: 1rem;
+            color: #2575fc;
+        }
+
+        .privacy-jump-links ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .privacy-jump-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .privacy-jump-links a {
+            color: #6a11cb;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .privacy-jump-links a i {
+            margin-right: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        .privacy-jump-links a:hover {
+            color: #2575fc;
+            transform: translateX(5px);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .footer-column p {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-column a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-column a:hover {
+            text-decoration: underline;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .navbar {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                margin-top: 1rem;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .privacy-container {
+                padding: 1.5rem;
+            }
+
+            .privacy-banner h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="../pages/index.html">
+                    <img src="elderly logo.png" alt="Elderly Assistance Portal Logo">
+                    <h1>Elderly Assistance Portal</h1>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="../pages/index.html">Home</a>
+                <!-- <a href="#">Services</a> -->
+                <a href="faq.html">FAQs</a>
+                <a href="#contact">Contact</a>
+                <!-- <button class="logout-btn" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button> -->
+            </div>
+        </nav>
+    </header>
+
+    <div class="privacy-banner">
+        <h1>Privacy Policy</h1>
+        <p>At Elderly Assistance Portal, we're committed to protecting your privacy and ensuring your personal information remains secure. This document outlines how we collect, use, and safeguard your data.</p>
+    </div>
+
+    <div class="privacy-container">
+        <div class="privacy-jump-links">
+            <h3>Quick Navigation</h3>
+            <ul>
+                <li><a href="#information-collection"><i class="fas fa-angle-right"></i> Information We Collect</a></li>
+                <li><a href="#information-use"><i class="fas fa-angle-right"></i> How We Use Your Information</a></li>
+                <li><a href="#information-sharing"><i class="fas fa-angle-right"></i> Information Sharing</a></li>
+                <li><a href="#data-security"><i class="fas fa-angle-right"></i> Data Security Measures</a></li>
+                <li><a href="#health-data"><i class="fas fa-angle-right"></i> Health Information Privacy</a></li>
+                <li><a href="#payment-security"><i class="fas fa-angle-right"></i> Payment Security</a></li>
+                <li><a href="#user-rights"><i class="fas fa-angle-right"></i> Your Rights & Choices</a></li>
+                <li><a href="#changes"><i class="fas fa-angle-right"></i> Changes to This Policy</a></li>
+                <li><a href="#contact"><i class="fas fa-angle-right"></i> Contact Us</a></li>
+            </ul>
+        </div>
+
+        <div class="privacy-section" id="information-collection">
+            <h2>Information We Collect</h2>
+            <p>To provide our service connecting elderly individuals with volunteers, we collect various types of information:</p>
+            
+            <h3>For Elderly Users:</h3>
+            <ul>
+                <li><strong>Personal Information:</strong> Name, age, contact details, and address</li>
+                <li><strong>Health Information:</strong> Health conditions, specific needs, and medical history when voluntarily provided</li>
+                <li><strong>Service Requests:</strong> Details about assistance needed, preferred times, locations, and budgets</li>
+                <li><strong>Communication Content:</strong> Messages and call records between you and volunteers</li>
+                <li><strong>Payment Information:</strong> Financial data related to compensating volunteers</li>
+            </ul>
+
+            <h3>For Volunteers:</h3>
+            <ul>
+                <li><strong>Personal Information:</strong> Name, age, contact details, and location</li>
+                <li><strong>Skills & Services:</strong> Information about services you can provide</li>
+                <li><strong>Availability:</strong> Your schedule and availability to provide assistance</li>
+                <li><strong>Background Check Information:</strong> Verification details to ensure platform safety</li>
+                <li><strong>Payment Details:</strong> Information needed to receive compensation for services provided</li>
+                <li><strong>Service Rates:</strong> Your payment rates for different types of assistance</li>
+            </ul>
+
+            <h3>Automatically Collected Information:</h3>
+            <ul>
+                <li><strong>Device & Usage Information:</strong> IP address, browser type, device identifiers, and usage patterns</li>
+                <li><strong>Location Data:</strong> Approximate location based on IP address or precise location with your permission</li>
+                <li><strong>Cookies & Similar Technologies:</strong> Information stored on your device to enhance your experience</li>
+            </ul>
+        </div>
+
+        <div class="privacy-section" id="information-use">
+            <h2>How We Use Your Information</h2>
+            <p>We use the collected information for the following purposes:</p>
+
+            <ul>
+                <li><strong>Service Provision:</strong> To match elderly users with appropriate volunteers based on needs, location, and availability</li>
+                <li><strong>Profile Creation:</strong> To establish and maintain user accounts and profiles</li>
+                <li><strong>Communication:</strong> To facilitate messaging and calls between elderly users and volunteers</li>
+                <li><strong>Payment Processing:</strong> To handle transactions between elderly users and volunteers</li>
+                <li><strong>Service Improvement:</strong> To analyze usage patterns and enhance our platform's functionality</li>
+                <li><strong>Safety & Security:</strong> To verify user identities and maintain a secure environment</li>
+                <li><strong>Personalization:</strong> To tailor our services to your preferences and needs</li>
+                <li><strong>Legal Compliance:</strong> To comply with applicable laws and regulations</li>
+            </ul>
+        </div>
+
+        <div class="privacy-section" id="information-sharing">
+            <h2>Information Sharing</h2>
+            <p>We share information with the following parties:</p>
+
+            <ul>
+                <li><strong>Between Users:</strong> Relevant information is shared between elderly users and volunteers to facilitate assistance services</li>
+                <li><strong>Service Providers:</strong> Third-party companies that help us operate our platform, process payments, and provide customer support</li>
+                <li><strong>Background Check Services:</strong> For volunteer verification purposes</li>
+                <li><strong>Family Members:</strong> With the elderly user's explicit consent, information may be shared with designated family members</li>
+                <li><strong>Healthcare Providers:</strong> When voluntarily provided by elderly users and with their consent</li>
+                <li><strong>Legal Authorities:</strong> When required by law or to protect our rights and the safety of our users</li>
+            </ul>
+
+            <p>We do not sell your personal information to third parties for marketing purposes.</p>
+        </div>
+
+        <div class="privacy-section" id="data-security">
+            <h2>Data Security Measures</h2>
+            <p>We implement various security measures to protect your personal information:</p>
+
+            <ul>
+                <li><strong>Encryption:</strong> All sensitive data transmission is protected using industry-standard encryption protocols</li>
+                <li><strong>Secure Infrastructure:</strong> Regular security assessments and updates to our systems</li>
+                <li><strong>Access Controls:</strong> Strict limitations on who can access user information within our organization</li>
+                <li><strong>Regular Audits:</strong> Periodic security audits and vulnerability assessments</li>
+                <li><strong>Staff Training:</strong> Comprehensive security training for all personnel with access to user data</li>
+                <li><strong>Incident Response:</strong> Procedures to quickly address any potential security breaches</li>
+            </ul>
+
+            <p>Despite our best efforts, no method of transmission over the internet or electronic storage is 100% secure. We strive to protect your personal information but cannot guarantee absolute security.</p>
+        </div>
+
+        <div class="privacy-section" id="health-data">
+            <h2>Health Information Privacy</h2>
+            <p>We understand the sensitive nature of health information and take additional precautions:</p>
+
+            <ul>
+                <li><strong>Consent-Based:</strong> Health information is only collected with explicit consent</li>
+                <li><strong>Limited Access:</strong> Only authorized individuals can access health-related data</li>
+                <li><strong>Enhanced Security:</strong> Additional security measures are applied to health information</li>
+                <li><strong>Controlled Sharing:</strong> Health information is only shared with designated volunteers, healthcare providers, or family members with your permission</li>
+                <li><strong>Deletion Protocols:</strong> Special procedures for the deletion of health data upon request</li>
+            </ul>
+
+            <p>Our practices regarding health information comply with applicable healthcare privacy regulations.</p>
+        </div>
+
+        <div class="privacy-section" id="payment-security">
+            <h2>Payment Security</h2>
+            <p>To ensure the security of payment transactions between elderly users and volunteers:</p>
+
+            <ul>
+                <li><strong>PCI Compliance:</strong> Our payment processing systems adhere to Payment Card Industry Data Security Standards</li>
+                <li><strong>Third-Party Processors:</strong> We use established payment processors with robust security measures</li>
+                <li><strong>Limited Retention:</strong> Full payment details are not stored on our servers</li>
+                <li><strong>Transaction Monitoring:</strong> Systems to detect and prevent fraudulent transactions</li>
+                <li><strong>Secure Payments:</strong> All payment transactions are encrypted end-to-end</li>
+            </ul>
+        </div>
+
+        <div class="privacy-section" id="user-rights">
+            <h2>Your Rights & Choices</h2>
+            <p>You have several rights regarding your personal information:</p>
+
+            <ul>
+                <li><strong>Access:</strong> You can request access to the personal information we hold about you</li>
+                <li><strong>Correction:</strong> You can request that we correct inaccurate or incomplete information</li>
+                <li><strong>Deletion:</strong> You can request that we delete your personal information in certain circumstances</li>
+                <li><strong>Restriction:</strong> You can request that we restrict the processing of your information</li>
+                <li><strong>Data Portability:</strong> You can request to receive your data in a structured, commonly used format</li>
+                <li><strong>Communication Preferences:</strong> You can opt out of receiving promotional communications</li>
+                <li><strong>Device Permissions:</strong> You can control permissions such as location access through your device settings</li>
+                <li><strong>Cookie Management:</strong> You can manage cookie preferences through your browser settings</li>
+            </ul>
+
+            <p>To exercise any of these rights, please contact us at privacy@elderlyassistance.org.</p>
+        </div>
+
+        <div class="privacy-section" id="changes">
+            <h2>Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. When we make material changes, we will:</p>
+
+            <ul>
+                <li>Post the updated policy on our website</li>
+                <li>Update the "Last Updated" date at the bottom of this policy</li>
+                <li>Notify you through the platform or via email for significant changes</li>
+            </ul>
+
+            <p>We encourage you to review this policy periodically to stay informed about how we protect your information.</p>
+        </div>
+
+        <div class="privacy-section" id="contact">
+            <h2>Contact Us</h2>
+            <p>If you have questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us at:</p>
+
+            <p>
+                <strong>Email:</strong> privacy@elderlyassistance.org<br>
+                <strong>Phone:</strong> 1-800-555-HELP<br>
+                <strong>Mail:</strong> Elderly Assistance Portal<br>
+                123 Care Street<br>
+                Compassion City, ST 12345<br>
+                United States
+            </p>
+
+            <p>We will respond to your inquiry as soon as possible and within the timeframes required by applicable law.</p>
+        </div>
+
+        <p class="last-updated">Last Updated: March 19, 2025</p>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>About Us</h4>
+                <p>Elderly Assistance Portal connects seniors with volunteers and services to improve quality of life and independence.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <a href="../pages/index.html">Home</a>
+                <a href="#">Services</a>
+                <a href="faq.html">FAQs</a>
+                <a href="#">Contact Us</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <p><i class="fas fa-phone"></i> Helpline: 1-800-555-HELP</p>
+                <p><i class="fas fa-envelope"></i> support@elderlyassistance.org</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Elderly Assistance Portal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- <script>
+        function logout() {
+            // Add logout functionality here
+            alert("Logout functionality will be implemented here");
+            window.location.href = "../pages/index.html";
+        }
+    </script> -->
+</body>
+
+</html>
