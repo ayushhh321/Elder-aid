@@ -28,6 +28,7 @@
 // backend/routes/taskRoutes.js
 import express from 'express';
 import Task from '../models/Task.js';
+import User from '../models/User.js';
 
 const router = express.Router();
 
@@ -71,11 +72,18 @@ router.put('/:taskId/accept', async (req, res) => {
         const task = await Task.findByIdAndUpdate(req.params.taskId, {
             status: 'accepted',
             assignedTo: volunteerId,
-        }, { new: true });
+        }, { new: true }).populate('createdBy', 'name contact'); //changes
 
         if (!task) return res.status(404).json({ error: 'Task not found' });
 
-        res.status(200).json({ message: 'Task accepted successfully', task });
+        // Provide Elder's Contact Info to Volunteer
+        const elderContact = task.createdBy.contact;
+
+        res.status(200).json({
+            message: 'Task accepted successfully',
+            task,
+            elderContact: elderContact || 'Contact not available',
+        }); //changes
 
     } catch (error) {
         console.error('Error accepting task:', error);
@@ -87,7 +95,7 @@ router.put('/:taskId/accept', async (req, res) => {
 // Reject Task (taskRoutes.js)
 router.put('/:taskId/reject', async (req, res) => {
     try {
-        const { rejectionMessage } = req.body;
+        const { rejectionMessage = 'Task rejected by volunteer.' } = req.body;
 
         const task = await Task.findByIdAndUpdate(req.params.taskId, {
             status: 'rejected',
