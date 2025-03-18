@@ -202,68 +202,103 @@
             margin-bottom: 0.5rem;
         }
 
-        footer {
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-            margin-top: 2rem;
-        }
+       /* Footer styles */
+footer {
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  color: white;
+  padding: 50px 0 20px;
+}
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 2rem;
-        }
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  gap: 30px;
+}
 
-        .footer-column h4 {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
+.footer-logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
 
-        .footer-column p {
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
+.footer-logo img {
+  height: 40px;
+  margin-right: 10px;
+  filter: brightness(0) invert(1);
+}
 
-        .footer-column a {
-            color: white;
-            text-decoration: none;
-            font-size: 0.9rem;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
+.footer-logo h3 {
+  color: white;
+  font-size: 1.3rem;
+}
 
-        .footer-column a:hover {
-            text-decoration: underline;
-        }
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
 
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
+.footer-column {
+  flex: 1;
+  min-width: 150px;
+}
 
-        .social-icons a {
-            color: white;
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-        }
+.footer-column h4 {
+  margin-bottom: 20px;
+  color: white;
+}
 
-        .social-icons a:hover {
-            transform: translateY(-3px);
-        }
+.footer-column ul li {
+  margin-bottom: 10px;
+}
 
-        .copyright {
-            margin-top: 2rem;
-            font-size: 0.8rem;
-            opacity: 0.8;
-        }
+.footer-column ul li a {
+  color: white;
+  transition: color 0.3s ease;
+}
 
+.footer-column ul li a:hover {
+  color: #4e73df;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons a {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.social-icons a:hover {
+  background-color: #4e73df;
+}
+
+.social-icons a i {
+  color: #fff;
+  font-size: 1rem;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 30px;
+  margin-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #bdc3c7;
+  font-size: 0.9rem;
+}
         @media (max-width: 768px) {
             .footer-content {
                 grid-template-columns: 1fr;
@@ -297,7 +332,7 @@
         <nav class="navbar">
             <div class="logo">
                 <a href="../pages/index.html">
-                    <img src="../images/logo-placeholder.png" alt="Elderly Assistance Portal Logo">
+                    <img src="elderly logo.png" alt="Elderly Assistance Portal Logo">
                     <h1>Elderly Assistance Portal</h1>
                 </a>
             </div>
@@ -305,7 +340,7 @@
                 <a href="index.html">Home</a>
                 <!-- <a href="#">Services</a> -->
                 <a href="faq.html">FAQs</a>
-                <a href="#">Contact</a>
+                <!-- <a href="#">Contact</a> -->
                 <!-- <button class="logout-btn" onclick="logout()">
                     <i class="fas fa-sign-out-alt"></i> Logout
                 </button> -->
@@ -527,7 +562,7 @@
         <p class="last-updated">Last Updated: March 19, 2025</p>
     </div>
 
-    <footer>
+    <!-- <footer>
         <div class="footer-content">
             <div class="footer-column">
                 <h4>About Us</h4>
@@ -537,7 +572,7 @@
                 <h4>Quick Links</h4>
                 <a href="index.html">Home</a>
                 <!-- <a href="#">Services</a> -->
-                <a href="faq.html">FAQs</a>
+                <!-- <a href="faq.html">FAQs</a>
                 <a href="contact">Contact Us</a>
                 <a href="privacy-policy.html">Privacy Policy</a>
                 <a href="terms_of_service.html">Terms of Service</a>
@@ -556,15 +591,57 @@
         <div class="copyright">
             <p>&copy; 2025 Elderly Assistance Portal. All rights reserved.</p>
         </div>
+    </footer>  -->
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links" style="display: flex; justify-content: space-between;">
+                <div class="footer-column">
+                    <h3>Elderly Assistance Portal</h3>
+                    <p>Elderly Assistance Portal connects seniors with volunteers and services to improve quality of life and independence.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#how-it-works">How it Works</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="privacy_policy.html">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Elderly Assistance Portal. All rights reserved.</p>
+        </div>
     </footer>
 
-    <script>
+
+    <!-- <script>
         function logout() {
             // Add logout functionality here
             alert("Logout functionality will be implemented here");
             window.location.href = "../pages/index.html";
         }
-    </script>
+    </script> -->
 </body>
 
 </html>
