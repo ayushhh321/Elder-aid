@@ -329,6 +329,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Get Elderly ID (from localStorage after login)
     const elderlyId = localStorage.getItem('userId');
+    
+    const taskStatusElement = document.getElementById('taskStatus');
+if (taskStatusElement) {
+    taskStatusElement.textContent = `Task Status: ${latestTask.status}`;
+}
   
     // Fetch Elderly User Data
     async function fetchElderlyData() {
@@ -338,32 +343,52 @@ document.addEventListener('DOMContentLoaded', async () => {
                 window.location.href = '../pages/loginPage.html';
                 return;
             }
-  
+    
             const response = await fetch(`http://localhost:3000/api/users/${elderlyId}`);
             if (!response.ok) throw new Error('Failed to fetch elderly data');
-  
+    
             const elderlyUser = await response.json();
-  
+    
             // Populate Profile Info
-            document.getElementById('elderName').textContent = elderlyUser.name;
-            document.getElementById('elderAge').textContent = elderlyUser.age || '--';
-            document.getElementById('elderLocation').textContent = elderlyUser.location || '--';
-            document.getElementById('elderNeeds').textContent = elderlyUser.needs || '--';
-            document.getElementById('elderHealth').textContent = elderlyUser.healthConditions || '--';
-            document.getElementById('elderContact').textContent = elderlyUser.contact || '--';
-  
+            if (document.getElementById('elderName')) {
+                document.getElementById('elderName').textContent = elderlyUser.name || 'Dear Elder';
+            }
+            if (document.getElementById('elderAge')) {
+                document.getElementById('elderAge').textContent = elderlyUser.age || '--';
+            }
+            if (document.getElementById('elderLocation')) {
+                document.getElementById('elderLocation').textContent = elderlyUser.location || '--';
+            }
+            if (document.getElementById('elderNeeds')) {
+                document.getElementById('elderNeeds').textContent = elderlyUser.needs || '--';
+            }
+            if (document.getElementById('elderHealth')) {
+                document.getElementById('elderHealth').textContent = elderlyUser.healthConditions || '--';
+            }
+            if (document.getElementById('elderContact')) {
+                document.getElementById('elderContact').textContent = elderlyUser.contact || '--';
+            }
+    
             // Show Task Status and Rejection Message if Available
             if (elderlyUser.tasks && elderlyUser.tasks.length > 0) {
                 const latestTask = elderlyUser.tasks[elderlyUser.tasks.length - 1];
-                document.getElementById('taskStatus').textContent = `Task Status: ${latestTask.status}`;
+                
+                const taskStatusElement = document.getElementById('taskStatus');
+                if (taskStatusElement) {
+                    taskStatusElement.textContent = `Task Status: ${latestTask.status}`;
+                }
+                
                 if (latestTask.status === 'rejected' && latestTask.rejectionMessage) {
-                    document.getElementById('rejectionMessage').textContent = `Request Rejected: ${latestTask.rejectionMessage}`;
+                    const rejectionElement = document.getElementById('rejectionMessage');
+                    if (rejectionElement) {
+                        rejectionElement.textContent = `Request Rejected: ${latestTask.rejectionMessage}`;
+                    }
                 }
             }
-  
+    
         } catch (error) {
             console.error('Error fetching elderly data:', error);
-            alert('Error loading profile.');
+            //alert('Error loading profile.');
         }
     }
   
@@ -391,7 +416,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         } catch (error) {
             console.error('Error fetching volunteers:', error);
-            alert('Error loading volunteers.');
+            //alert('Error loading volunteers.');
         }
     }
   

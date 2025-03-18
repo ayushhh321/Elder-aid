@@ -234,45 +234,143 @@ window.rejectTask = async (taskId) => {
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/volunteer-dashboard.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+                                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            background-color: #f9f9f9;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #4e73df;
-            padding: 1rem;
-            color: white;
-        }
-
-        .navbar .logo a {
-            display: flex;
-            align-items: center;
-            color: white;
-            text-decoration: none;
-        }
-
-        .logo img {
-            height: 40px;
-            margin-right: 10px;
-        }
-
-        .logout-btn {
-            background-color: #f44336;
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-
+        * {
+                                            margin: 0;
+                                            padding: 0;
+                                            box-sizing: border-box;
+                                        }
+                                
+                                        body {
+                                            font-family: 'Poppins', sans-serif;
+                                            background-color: #f5f7fa;
+                                            color: #333;
+                                            line-height: 1.6;
+                                        }
+                                
+                                        .navbar {
+                                            display: flex;
+                                            justify-content: space-between;
+                                            align-items: center;
+                                            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+                                            padding: 1rem 2rem;
+                                            color: white;
+                                            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                                        }
+                                
+                                        .navbar .logo a {
+                                            display: flex;
+                                            align-items: center;
+                                            color: white;
+                                            text-decoration: none;
+                                        }
+                                
+                                        .logo img {
+                                            height: 40px;
+                                            margin-right: 15px;
+                                            border-radius: 8px;
+                                        }
+                                        .logout-btn {
+                                            background-color: rgba(255, 255, 255, 0.15);
+                                            color: white;
+                                            border: none;
+                                            padding: 0.5rem 1rem;
+                                            border-radius: 6px;
+                                            cursor: pointer;
+                                            font-size: 0.9rem;
+                                            transition: all 0.3s ease;
+                                            display: flex;
+                                            align-items: center;
+                                        }
+                                
+                                        .logout-btn i {
+                                            margin-right: 5px;
+                                        }
+                                
+                                        .logout-btn:hover {
+                                            background-color: rgba(255, 255, 255, 0.25);
+                                        }
+                                        .welcome-banner {
+                                            background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+                                            padding: 2rem;
+                                            margin-bottom: 2rem;
+                                            border-radius: 0 0 20px 20px;
+                                            text-align: center;
+                                        }
+                                
+                                        .welcome-banner h2 {
+                                            color: #0277bd;
+                                            margin-bottom: 0.5rem;
+                                        }
+                                
+                                        .welcome-banner p {
+                                            color: #546e7a;
+                                            font-size: 0.9rem;
+                                        }
+                                        footer {
+                                            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+                                            color: white;
+                                            padding: 2rem;
+                                            text-align: center;
+                                            margin-top: 2rem;
+                                        }
+                                
+                                        .footer-content {
+                                            max-width: 1200px;
+                                            margin: 0 auto;
+                                            display: grid;
+                                            grid-template-columns: 1fr 1fr 1fr;
+                                            gap: 2rem;
+                                        }
+                                
+                                        .footer-column h4 {
+                                            margin-bottom: 1rem;
+                                            font-size: 1.1rem;
+                                            font-weight: 600;
+                                        }
+                                
+                                        .footer-column p {
+                                            font-size: 0.9rem;
+                                            margin-bottom: 1rem;
+                                        }
+                                
+                                        .footer-column a {
+                                            color: white;
+                                            text-decoration: none;
+                                            font-size: 0.9rem;
+                                            display: block;
+                                            margin-bottom: 0.5rem;
+                                        }
+                                
+                                        .footer-column a:hover {
+                                            text-decoration: underline;
+                                        }
+                                
+                                        .social-icons {
+                                            display: flex;
+                                            justify-content: center;
+                                            gap: 1rem;
+                                            margin-top: 1rem;
+                                        }
+                                
+                                        .social-icons a {
+                                            color: white;
+                                            font-size: 1.2rem;
+                                            transition: transform 0.3s ease;
+                                        }
+                                
+                                        .social-icons a:hover {
+                                            transform: translateY(-3px);
+                                        }
+                                
+                                        .copyright {
+                                            margin-top: 2rem;
+                                            font-size: 0.8rem;
+                                            opacity: 0.8;
+                                        }
         .dashboard-container {
             max-width: 1200px;
             margin: 2rem auto;
@@ -348,17 +446,37 @@ window.rejectTask = async (taskId) => {
                     <h1>Elderly Assistance Portal</h1>
                 </a>
             </div>
-            <button class="logout-btn" onclick="logout()">Logout</button>
+            <div class="nav-links">
+                <span>Welcome to your dashboard</span>
+                <button class="logout-btn" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
         </nav>
     </header>
+    <div class="welcome-banner">
+        <h2>Welcome to Your Personal Dashboard</h2>
+        <p>Manage your profile, request assistance, and keep track of your activities all in one place.</p>
+    </div>
 
     <main class="dashboard-container">
         <section class="profile-section">
-            <h2>Welcome, <span id="volunteerName">Volunteer</span></h2>
-            <p><strong>Skills:</strong> <span id="volunteerSkills">--</span></p>
+            <h2>Welcome, <span id="volunteerName">Volunteer</span></h2><br>
+            <h3>T&C</h3><br>
+            <!-- <p><strong>Skills:</strong> <span id="volunteerSkills">--</span></p>
             <p><strong>Location:</strong> <span id="volunteerLocation">--</span></p>
             <p><strong>Availability:</strong> <span id="volunteerAvailability">--</span></p>
-            <p><strong>Payment Rate:</strong> <span id="volunteerPayment">--</span></p>
+            <p><strong>Payment Rate:</strong> <span id="volunteerPayment">--</span></p> -->
+            <p>
+                1. Accept the request only if you are compatible with the help needed, urgency, location, and budget per day.
+            </p><br>
+            <p>
+                2. When rejecting a request, you must provide a reason to the portal(On call if made by Portal).
+            </p><br>
+            <p>
+                3. After completing the service, you will receive payment through the portal. No cash transactions with the elder are allowed.
+            </p><br>
+
         </section>
 
         <section class="task-section">
@@ -368,7 +486,33 @@ window.rejectTask = async (taskId) => {
     </main>
 
     <footer>
-        <p>&copy; 2025 Elderly Assistance Portal. All rights reserved.</p>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>About Us</h4>
+                <p>Elderly Assistance Portal connects seniors with volunteers and services to improve quality of life and independence.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <a href="#">Home</a>
+                <a href="#">Services</a>
+                <a href="#">FAQs</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <p><i class="fas fa-phone"></i> Helpline: 1-800-555-HELP</p>
+                <p><i class="fas fa-envelope"></i> support@elderlyassistance.org</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Elderly Assistance Portal. All rights reserved.</p>
+        </div>
     </footer>
 
     <script>
@@ -586,6 +730,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         <p><strong>Help Needed:</strong> ${task.helpType}</p>
                         <p><strong>Urgency:</strong> ${task.urgency}</p>
                         <p><strong>Location:</strong> ${task.location}</p>
+                        <p><strong>Budget Per Day(Rs):</strong> ${task.budget}</p>
                         <button class="accept-btn" onclick="acceptTask('${task._id}')">Accept</button>
                         <button class="reject-btn" onclick="rejectTask('${task._id}')">Reject</button>
                     </div>
@@ -596,42 +741,81 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     // Accept Task
+    // window.acceptTask = async (taskId) => {
+    //     try {
+    //         const response = await fetch(`http://localhost:3000/api/tasks/${taskId}/accept`, {
+    //             method: 'PUT',
+    //             headers: { 'Content-Type': 'application/json' },
+    //             body: JSON.stringify({ volunteerId }),
+    //         });
+
+    //         if (!response.ok) throw new Error('Failed to accept task');
+    //         alert('Task accepted successfully!');
+
+    //         // Remove accepted task from UI
+    //         document.getElementById(`task-${taskId}`).remove();
+    //     } catch (error) {
+    //         alert('Error accepting task.');
+    //     }
+    // };
     window.acceptTask = async (taskId) => {
-        try {
-            const response = await fetch(`http://localhost:3000/api/tasks/${taskId}/accept`, {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ volunteerId }),
-            });
+                try {
+                    const response = await fetch(`http://localhost:3000/api/tasks/${taskId}/accept`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ volunteerId }),
+                    });
 
-            if (!response.ok) throw new Error('Failed to accept task');
-            alert('Task accepted successfully!');
+                    if (!response.ok) throw new Error('Failed to accept task');
 
-            // Remove accepted task from UI
-            document.getElementById(`task-${taskId}`).remove();
-        } catch (error) {
-            alert('Error accepting task.');
-        }
-    };
+                    const { elderContact } = await response.json();
+                    alert(`Task accepted successfully! Dialing: ${elderContact}`);
+
+                    // Open dial pad with elder's number
+                    window.location.href = `tel:${elderContact}`;
+
+                    // Remove accepted task from UI
+                    document.getElementById(`task-${taskId}`).remove();
+                } catch (error) {
+                    alert('Error accepting task.');
+                }
+            };
 
     // Reject Task
-    window.rejectTask = async (taskId) => {
-        try {
-            const response = await fetch(`http://localhost:3000/api/tasks/${taskId}/reject`, {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ rejectionMessage: 'Task rejected by volunteer.' }),
-            });
+    // window.rejectTask = async (taskId) => {
+    //     try {
+    //         const response = await fetch(`http://localhost:3000/api/tasks/${taskId}/reject`, {
+    //             method: 'PUT',
+    //             headers: { 'Content-Type': 'application/json' },
+    //             body: JSON.stringify({ rejectionMessage: 'Task rejected by volunteer.' }),
+    //         });
 
-            if (!response.ok) throw new Error('Failed to reject task');
-            alert('Task rejected successfully.');
+    //         if (!response.ok) throw new Error('Failed to reject task');
+    //         alert('Task rejected successfully.');
 
-            // Remove rejected task from UI
-            document.getElementById(`task-${taskId}`).remove();
-        } catch (error) {
-            alert('Error rejecting task.');
-        }
-    };
+    //         // Remove rejected task from UI
+    //         document.getElementById(`task-${taskId}`).remove();
+    //     } catch (error) {
+    //         alert('Error rejecting task.');
+    //     }
+    // };
+window.rejectTask = async (taskId) => {
+                try {
+                    const response = await fetch(`http://localhost:3000/api/tasks/${taskId}/reject`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ rejectionMessage: 'Task rejected by volunteer.' }),
+                    });
+
+                    if (!response.ok) throw new Error('Failed to reject task');
+                    alert('Task rejected successfully.');
+
+                    // Remove rejected task from UI
+                    document.getElementById(`task-${taskId}`).remove();
+                } catch (error) {
+                    alert('Error rejecting task.');
+                }
+            };
 
     window.logout = () => {
         localStorage.removeItem('userId');

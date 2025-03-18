@@ -118,6 +118,7 @@ import taskRoutes from './routes/taskRoutes.js';
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
+//app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 // 🟢 Middleware
 app.use(bodyParser.json());
@@ -153,5 +154,5 @@ app.use((err, req, res, next) => {
 
 // 🟢 Start the Server
 app.listen(PORT, () => {
-    console.log(`🚀 Server running on port ${PORT}`);
+    console.log(`🚀 AYUSH++ Server running on port ${PORT}`);
 });
