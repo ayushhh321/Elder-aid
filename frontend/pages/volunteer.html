@@ -505,8 +505,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                         <p><strong>Urgency:</strong> ${task.urgency}</p>
                         <p><strong>Location:</strong> ${task.location}</p>
                         <p><strong>Budget Per Day(Rs):</strong> ${task.budget}</p>
+                        ${task.medicalHistory ? `<p><strong>Medical History:</strong> <a href="http://localhost:3000${task.medicalHistory}" target="_blank">Click here</a></p>` : ''}
+
                         <button class="accept-btn" onclick="acceptTask('${task._id}')">Accept</button>
                         <button class="reject-btn" onclick="rejectTask('${task._id}')">Reject</button>
+                        
                     </div>
                 `).join('');
         } catch (error) {

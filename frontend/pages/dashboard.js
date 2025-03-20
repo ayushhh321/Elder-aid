@@ -462,6 +462,7 @@ if (taskStatusElement) {
         formData.append('location', document.getElementById('location').value);
         formData.append('budget', document.getElementById('budget').value);
         formData.append('createdBy', elderlyId);
+        formData.append('medicalHistory', document.getElementById('medicalHistory').medicalHistoryFile);
     
         const medicalHistoryFile = document.getElementById('medicalHistory').files[0];
         if (medicalHistoryFile) {

@@ -10,7 +10,8 @@ const taskSchema = new mongoose.Schema({
     status: { type: String, default: 'pending' }, // pending, accepted, rejected, completed
     createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }, // Elderly user who created the request
     assignedTo: { type: mongoose.Schema.Types.ObjectId, ref: 'User', default: null }, // Volunteer handling the task
-    rejectionMessage: { type: String, default: '' } // Added rejection message
+    rejectionMessage: { type: String, default: '' }, // Added rejection message
+    medicalHistory: { type: String, default: '' } // ✅ Added medical history PDF path
 });
 
 // Add index for faster querying on status

@@ -120,8 +120,15 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 //app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
+// Serve uploads directory
+app.use('/uploads', express.static('uploads'));
+
+
 // 🟢 Middleware
 app.use(bodyParser.json());
+
+// ✅ Serve uploads folder
+app.use('/uploads', express.static('uploads'));
 
 // Enable CORS for both localhost and 127.0.0.1
 app.use(cors({
