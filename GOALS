@@ -1,25 +1,6 @@
 The Elderly Assistance Portal is a web-based service designed to connect elderly individuals needing support with volunteers who can assist with daily tasks, provide companionship, and address healthcare needs.
 Additionally, the platform includes a payment system to compensate volunteers for their services.
 
-
-User Registration and Profiles
-
-Elderly individuals can create profiles with details such as name, age, location, specific needs (e.g., grocery shopping, transportation, companionship), health conditions, and contact information.
-
-Volunteers create profiles that include their skills, availability, location, background checks, the types of assistance they can offer, and their payment rates.
-
-Task and Request Management 
-Elderly users can easily submit requests for assistance, specifying the type of help needed, urgency, preferred time, and location.
-We can pair requests with suitable volunteers based on factors like proximity, availability, skill set, and payment rates
-
- Communication Tools 
-Internal messaging system within the platform or Built-in calling features 
- Healthcare Integration 
-Medical History and Appointments and 
-Health Monitoring visible to volunteers, doctors and family members 
- Volunteer Management 
-Background Checks, Training Resources, Payment System to compensate volunteers for their services.
- Feedback and Reviews
  Development: 
 -- Frontend: HTML, CSS, and JavaScript frameworks 
 -- Backend: Implement the database using MySQL, MongoDB
@@ -28,9 +9,70 @@ Background Checks, Training Resources, Payment System to compensate volunteers f
 
 
 
-what i want now :-
-1 . when an elder create his account then he have to login into the website using the creds after login he will be redirected to a dashboard where he can fill some of his details which is for that user then he will fill a form submit Assistance Request where he mention help needed , budget , time , location etc he will raise the request from his side .
-1. when an volunteer create his account and login with the creds he will redirected to volunteer panel where he will mention his detials like his payment rates , what type ofservice he provide , avaibabilty etc and he can see request raised by elders so that he can accept and reject the request made by elder.and if the volunteer reject the help then elder will recive message in dashboard request rejeceted type message .
-2. first way to map elder with volunteer is by raising the request now the second way like there will be a search box cum filter where elder can enter gender , age , location , price of volunteer(we will take all these data from volunteer beforehand so that we can just sort/filter among bunch of volunteer specific to the request made by elder ) and by entering these values list of elgible volunteer profiles can be shown to elder . now elder can click on the volunteer profile now from there they can talk in chat and there will be calling feature for them to talk .
+✅ Features Implemented in the Elderly Assistance Portal
+🔵 1. User Authentication
+Register (Elderly & Volunteer)
 
-so i want you to make all these features add create new files but complete all these
+Elderly and Volunteers can register by providing:
+Full Name, Email, Password
+For Elderly: Age, Location, Contact, Needs, Health Conditions, Medical History (PDF Upload)
+For Volunteer: Skills, Availability, Location, Payment Rate
+📌 Instruction: Ensure CORS settings on the backend match your frontend URL after deployment.
+Login (Elderly & Volunteer)
+
+Users can log in using their email and password.
+Upon successful login:
+User is redirected based on their role:
+Elderly → dashboard.html
+Volunteer → volunteer.html
+User ID and Type are stored in localStorage.
+📌 Instruction: Ensure API URLs point to your backend (e.g., /api/login).
+🔵 2. Elderly Dashboard
+Profile Management
+
+View and update personal details:
+Name, Age, Gender, Location, Contact, Blood Group, Monthly Budget
+Upload Profile Image (Updates live preview).
+📌 Instruction: Ensure MongoDB stores updated profile details.
+Request Assistance
+
+Elderly users can submit service requests with:
+Help Type, Urgency, Location, Budget, Preferred Time
+Upload Medical History (PDF)
+Requests are stored in the database and marked as "pending."
+📌 Instruction: Ensure the uploads folder exists in production for file storage.
+View Request Status
+
+Elderly users can track the latest request status:
+pending, accepted, or rejected
+If rejected, the reason is displayed.
+📌 Instruction: Ensure the latest task is fetched and displayed correctly.
+🔵 3. Volunteer Dashboard
+View Available Requests
+
+Volunteers can see all pending requests with:
+Help Needed, Urgency, Location, Budget
+Medical History (PDF Link)
+📌 Instruction: Ensure file paths are correct for PDF viewing.
+Accept or Reject Requests
+
+Accept Request: Updates the task with volunteer details and removes it from the available list.
+Dial Pad Feature: On acceptance, a dialer opens with the elderly’s contact number.
+Reject Request: Marks the task as rejected (without requiring a reason).
+📌 Instruction: Ensure requests update task status in MongoDB.
+🔵 4. File Upload and Download
+Medical History Upload (PDF)
+Elderly users can upload medical history PDFs when requesting assistance.
+Volunteers can view/download these PDFs via a "Click Here" link.
+📌 Instruction: Ensure the /uploads folder is public and accessible in deployment.
+🔵 5. Session Management
+After login:
+User data (userId, userType, userName) is stored in localStorage.
+Logout Feature:
+Clears localStorage and redirects to the login page.
+🔵 6. Error Handling and Notifications
+Frontend:
+Displays alerts for success and failure (e.g., "Request submitted successfully!").
+Backend:
+Global error handler (500 Internal Server Error, 404 Not Found).
+Input validation and clear error messages.
