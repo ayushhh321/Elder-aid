@@ -29,18 +29,68 @@
 import express from 'express';
 import Task from '../models/Task.js';
 import User from '../models/User.js';
+import multer from 'multer';
+import path from 'path';
+import fs from 'fs';
 
 const router = express.Router();
 
+// Ensure uploads directory exists
+const uploadDir = path.join('uploads');
+if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir, { recursive: true });
+}
+
+// PDF Upload Configuration
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, uploadDir);
+    },
+    filename: (req, file, cb) => {
+        cb(null, `${Date.now()}-${file.originalname}`);
+    },
+});
+
+const upload = multer({ storage });
+
 // 1. Create Task (Elderly User Submits a Request)
-router.post('/', async (req, res) => {
+// router.post('/', async (req, res) => {
+//     try {
+//         const { helpType, urgency, preferredTime, location, budget, createdBy } = req.body;
+
+//         // Input Validation
+//         if (!helpType || !urgency || !location || !budget || !createdBy) {
+//             return res.status(400).json({ error: 'All required fields must be provided' });
+//         }
+
+//         const newTask = new Task({
+//             helpType,
+//             urgency,
+//             preferredTime,
+//             location,
+//             budget,
+//             createdBy
+//         });
+
+//         await newTask.save();
+//         res.status(201).json({ message: 'Task created successfully', task: newTask });
+
+//     } catch (error) {
+//         console.error('Error creating task:', error);
+//         res.status(500).json({ error: 'Error creating task' });
+//     }
+// });
+
+// Create Task (with Medical PDF Upload)
+router.post('/', upload.single('medicalHistory'), async (req, res) => {
     try {
         const { helpType, urgency, preferredTime, location, budget, createdBy } = req.body;
-
-        // Input Validation
+        
         if (!helpType || !urgency || !location || !budget || !createdBy) {
             return res.status(400).json({ error: 'All required fields must be provided' });
         }
+
+        const medicalHistoryPath = req.file ? `/uploads/${req.file.filename}` : '';
 
         const newTask = new Task({
             helpType,
@@ -48,17 +98,19 @@ router.post('/', async (req, res) => {
             preferredTime,
             location,
             budget,
-            createdBy
+            createdBy,
+            medicalHistory: medicalHistoryPath
         });
 
         await newTask.save();
         res.status(201).json({ message: 'Task created successfully', task: newTask });
-
     } catch (error) {
         console.error('Error creating task:', error);
         res.status(500).json({ error: 'Error creating task' });
     }
 });
+
+
 
 // 2. Accept Task (Volunteer accepts a task)
 router.put('/:taskId/accept', async (req, res) => {
@@ -113,6 +165,17 @@ router.put('/:taskId/reject', async (req, res) => {
 
 
 // 4. Get Pending Tasks (For Volunteers to View Available Tasks)
+// router.get('/pending', async (req, res) => {
+//     try {
+//         const tasks = await Task.find({ status: 'pending' }).populate('createdBy', 'name contact location');
+//         res.status(200).json(tasks);
+//     } catch (error) {
+//         console.error('Error fetching tasks:', error);
+//         res.status(500).json({ error: 'Error fetching tasks' });
+//     }
+// });
+
+// Get Pending Tasks (Including Medical PDF)
 router.get('/pending', async (req, res) => {
     try {
         const tasks = await Task.find({ status: 'pending' }).populate('createdBy', 'name contact location');
