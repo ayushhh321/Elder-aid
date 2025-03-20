@@ -34,6 +34,18 @@ import path from 'path';
 
 const router = express.Router();
 
+// PDF Upload Configuration
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'uploads/');
+    },
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + path.extname(file.originalname));
+    },
+});
+
+const upload = multer({ storage });
+
 // 1. Create Task (Elderly User Submits a Request)
 router.post('/', async (req, res) => {
     try {
