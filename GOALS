@@ -3,9 +3,9 @@ Additionally, the platform includes a payment system to compensate volunteers fo
 
  Development: 
 -- Frontend: HTML, CSS, and JavaScript frameworks 
--- Backend: Implement the database using MySQL, MongoDB
--- Payment Integration: payment gateway for handling transactions between elderly users and volunteers. (we don't need to add real payment gateway try something just for demo purpose)
--- and create a system to somehow for matching volunteer and elder profiles
+-- Backend: Implement the database using  MongoDB , NodeJS
+-- Multer for PDF.
+-- UI
 
 
 
