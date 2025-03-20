@@ -421,27 +421,61 @@ if (taskStatusElement) {
     }
   
     // Submit Assistance Request
+    // async function submitRequest(e) {
+    //     e.preventDefault();
+  
+    //     const requestData = {
+    //         helpType: document.getElementById('helpType').value,
+    //         urgency: document.getElementById('urgency').value,
+    //         preferredTime: document.getElementById('preferredTime').value,
+    //         location: document.getElementById('location').value,
+    //         budget: parseFloat(document.getElementById('budget').value),
+    //         createdBy: elderlyId
+    //     };
+  
+    //     try {
+    //         const response = await fetch('http://localhost:3000/api/tasks', {
+    //             method: 'POST',
+    //             headers: { 'Content-Type': 'application/json' },
+    //             body: JSON.stringify(requestData)
+    //         });
+  
+    //         if (!response.ok) throw new Error('Failed to submit request');
+  
+    //         alert('Assistance request submitted successfully!');
+    //         e.target.reset();
+    //     } catch (error) {
+    //         console.error('Error submitting request:', error);
+    //         alert('Error submitting request.');
+    //     }
+    // }
+
+    //changes for pdf
+
     async function submitRequest(e) {
         e.preventDefault();
-  
-        const requestData = {
-            helpType: document.getElementById('helpType').value,
-            urgency: document.getElementById('urgency').value,
-            preferredTime: document.getElementById('preferredTime').value,
-            location: document.getElementById('location').value,
-            budget: parseFloat(document.getElementById('budget').value),
-            createdBy: elderlyId
-        };
-  
+    
+        const formData = new FormData();
+        formData.append('helpType', document.getElementById('helpType').value);
+        formData.append('urgency', document.getElementById('urgency').value);
+        formData.append('preferredTime', document.getElementById('preferredTime').value);
+        formData.append('location', document.getElementById('location').value);
+        formData.append('budget', document.getElementById('budget').value);
+        formData.append('createdBy', elderlyId);
+    
+        const medicalHistoryFile = document.getElementById('medicalHistory').files[0];
+        if (medicalHistoryFile) {
+            formData.append('medicalHistory', medicalHistoryFile);
+        }
+    
         try {
             const response = await fetch('http://localhost:3000/api/tasks', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(requestData)
+                body: formData,
             });
-  
+    
             if (!response.ok) throw new Error('Failed to submit request');
-  
+    
             alert('Assistance request submitted successfully!');
             e.target.reset();
         } catch (error) {
@@ -449,6 +483,7 @@ if (taskStatusElement) {
             alert('Error submitting request.');
         }
     }
+    
   
     // Logout Functionality
     window.logout = function () {
