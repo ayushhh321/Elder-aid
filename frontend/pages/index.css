@@ -164,7 +164,7 @@ header {
 
 /* Main content styles */
 main {
-  padding-top: 80px; /* To account for fixed header */
+  padding-top: 120px; /* Increased from 80px to give more space */
 }
 
 /* Hero section */
@@ -541,6 +541,10 @@ footer {
 }
 
 @media (max-width: 768px) {
+  main {
+    padding-top: 180px; /* More space for mobile */
+  }
+  
   h2 {
       font-size: 1.75rem;
   }
@@ -603,23 +607,38 @@ footer {
       min-width: 100%;
       margin-bottom: 20px;
   }
+
+  .nav-links {
+      width: 100%;
+      margin-top: 15px;
+  }
+  
+  .nav-links ul {
+      justify-content: center;
+  }
 }
 
 @media (max-width: 576px) {
+  main {
+    padding-top: 230px; /* Even more space for very small screens */
+  }
+
   .navbar {
       flex-direction: column;
       align-items: flex-start;
+      padding: 10px 3%;
   }
   
   .logo {
       width: 100%;
       justify-content: space-between;
+      margin-bottom: 10px;
   }
   
   .auth-buttons {
       width: 100%;
-      justify-content: space-between;
-      margin-top: 15px;
+      justify-content: center;
+      margin-top: 10px;
   }
   
   .btn {
@@ -628,12 +647,14 @@ footer {
   }
   
   .nav-links ul {
-      flex-direction: column;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
       width: 100%;
   }
   
   .nav-links ul li {
-      margin: 10px 0;
+      margin: 5px 10px;
       text-align: center;
   }
   
@@ -645,3 +666,4 @@ footer {
       flex-direction: column;
       width: 100%;
   }
+}
