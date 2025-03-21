@@ -130,9 +130,9 @@ app.use(bodyParser.json());
 // ✅ Serve uploads folder
 app.use('/uploads', express.static('uploads'));
 
-// Enable CORS for both localhost and 127.0.0.1
+// Enable CORS for both development and production environments
 app.use(cors({
-    origin: ['http://127.0.0.1:5500', 'http://localhost:5500']
+    origin: ['http://127.0.0.1:5500', 'http://localhost:5500', 'https://elder-aid-frontend.onrender.com']
 }));
 
 // 🟢 Database Connection
