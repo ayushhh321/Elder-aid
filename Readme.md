@@ -121,12 +121,10 @@ elderly-assistance-portal/
     │     ├── register.html  # Registration page
     │     ├── dashboard.html # Elderly Dashboard
     │     └── volunteer.html # Volunteer Dashboard
-    ├── css/
-    │     └── styles.css     # Global and component-specific styles
-    ├── js/
+          └── styles.css     # Global and component-specific styles
     │     ├── dashboard.js   # Elderly dashboard logic
     │     └── volunteer.js   # Volunteer dashboard logic
-    └── images/              # Logo and other assets
+             # Logo and other assets
 ```
 
 ## 📊 Usage Instructions
