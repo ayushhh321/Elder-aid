@@ -344,7 +344,7 @@ if (taskStatusElement) {
                 return;
             }
     
-            const response = await fetch(`http://localhost:3000/api/users/${elderlyId}`);
+            const response = await fetch(`https://elder-aid.onrender.com/api/users/${elderlyId}`);
             if (!response.ok) throw new Error('Failed to fetch elderly data');
     
             const elderlyUser = await response.json();
@@ -395,7 +395,7 @@ if (taskStatusElement) {
     // Fetch Volunteers from Backend
     async function fetchVolunteers() {
         try {
-            const response = await fetch('http://localhost:3000/api/volunteers');
+            const response = await fetch('https://elder-aid.onrender.com/api/volunteers');
             if (!response.ok) throw new Error('Failed to fetch volunteers');
   
             const volunteers = await response.json();
@@ -470,7 +470,7 @@ if (taskStatusElement) {
         }
     
         try {
-            const response = await fetch('http://localhost:3000/api/tasks', {
+            const response = await fetch('https://elder-aid.onrender.com/api/tasks', {
                 method: 'POST',
                 body: formData,
             });
@@ -490,7 +490,7 @@ if (taskStatusElement) {
     window.logout = function () {
         localStorage.removeItem('userId'); // Clear user session
         alert('Logged out successfully.');
-        window.location.href = '../pages/loginPage.html';
+        window.location.href = 'loginPage.html';
     };
   
     // Initialize Dashboard
