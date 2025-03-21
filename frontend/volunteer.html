@@ -215,7 +215,7 @@
     <header>
         <nav class="navbar">
             <div class="logo">
-                <a href="../pages/index.html">
+                <a href="index.html">
                     <img src="elderly logo.png" alt="Elderly Assistance Portal Logo">
                     <h1>Elderly Assistance Portal</h1>
                 </a>
@@ -278,9 +278,10 @@
                 <p><i class="fas fa-phone"></i> Helpline: 1-800-555-HELP</p>
                 <p><i class="fas fa-envelope"></i> support@elderlyassistance.org</p>
                 <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="facebook.com"><i class="fab fa-facebook"></i></a>
+                        <a href="https://x.com/hypo_sucks"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/ayushgupta.73"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/ayushhh321/"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
         </div>
@@ -468,7 +469,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Redirect to login if not authenticated
     if (!volunteerId) {
         alert('Unauthorized access. Redirecting to login.');
-        window.location.href = '../pages/loginPage.html';
+        window.location.href = 'loginPage.html';
         return;
     }
 
@@ -596,7 +597,7 @@ window.rejectTask = async (taskId) => {
 
     window.logout = () => {
         localStorage.removeItem('userId');
-        window.location.href = '../pages/index.html';
+        window.location.href = 'index.html';
     };
 
     await fetchVolunteerData();
