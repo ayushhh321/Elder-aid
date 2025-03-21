@@ -475,7 +475,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Fetch Volunteer Data
     async function fetchVolunteerData() {
         try {
-            const response = await fetch(`http://localhost:3000/api/users/${volunteerId}`);
+            const response = await fetch(`https://elder-aid.onrender.com/api/users/${volunteerId}`); //for render
             if (!response.ok) throw new Error('Failed to fetch volunteer data');
 
             const volunteerData = await response.json();
@@ -492,7 +492,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Fetch Available Tasks (Only pending)
     async function fetchTasks() {
         try {
-            const response = await fetch('http://localhost:3000/api/tasks/pending');
+            const response = await fetch('https://elder-aid.onrender.com/api/tasks/pending');
             if (!response.ok) throw new Error('Failed to fetch tasks');
 
             const tasks = await response.json();
@@ -505,7 +505,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         <p><strong>Urgency:</strong> ${task.urgency}</p>
                         <p><strong>Location:</strong> ${task.location}</p>
                         <p><strong>Budget Per Day(Rs):</strong> ${task.budget}</p>
-                        ${task.medicalHistory ? `<p><strong>Medical History:</strong> <a href="http://localhost:3000${task.medicalHistory}" target="_blank">Click here</a></p>` : ''}
+                        ${task.medicalHistory ? `<p><strong>Medical History:</strong> <a href="https://elder-aid.onrender.com${task.medicalHistory}" target="_blank">Click here</a></p>` : ''}
 
                         <button class="accept-btn" onclick="acceptTask('${task._id}')">Accept</button>
                         <button class="reject-btn" onclick="rejectTask('${task._id}')">Reject</button>
@@ -537,7 +537,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // };
     window.acceptTask = async (taskId) => {
                 try {
-                    const response = await fetch(`http://localhost:3000/api/tasks/${taskId}/accept`, {
+                    const response = await fetch(`https://elder-aid.onrender.com/api/tasks/${taskId}/accept`, { //for render
                         method: 'PUT',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ volunteerId }),
@@ -578,7 +578,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // };
 window.rejectTask = async (taskId) => {
                 try {
-                    const response = await fetch(`http://localhost:3000/api/tasks/${taskId}/reject`, {
+                    const response = await fetch(`https://elder-aid.onrender.com/api/tasks/${taskId}/reject`, { //for render
                         method: 'PUT',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ rejectionMessage: 'Task rejected by volunteer.' }),
