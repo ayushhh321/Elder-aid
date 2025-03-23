@@ -472,6 +472,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         window.location.href = 'loginPage.html';
         return;
     }
+//welcome ayush
+//     document.addEventListener('DOMContentLoaded', () => {
+//     const volunteerName = localStorage.getItem('userName') || 'Volunteer';
+//     document.getElementById('volunteerName').textContent = volunteerName;
+// });
+// Display volunteer name from localStorage
+const volunteerName = localStorage.getItem('userName') || 'Volunteer';
+    document.getElementById('volunteerName').textContent = volunteerName;
 
     // Fetch Volunteer Data
     async function fetchVolunteerData() {
@@ -505,6 +513,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         <p><strong>Help Needed:</strong> ${task.helpType}</p>
                         <p><strong>Urgency:</strong> ${task.urgency}</p>
                         <p><strong>Location:</strong> ${task.location}</p>
+                        <p><strong>Date and time:</strong> ${task.preferredTime}</p>
                         <p><strong>Budget Per Day(Rs):</strong> ${task.budget}</p>
                         ${task.medicalHistory ? `<p><strong>Medical History:</strong> <a href="https://elder-aid.onrender.com${task.medicalHistory}" target="_blank">Click here</a></p>` : ''}
 
