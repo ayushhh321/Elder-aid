@@ -472,6 +472,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         window.location.href = 'loginPage.html';
         return;
     }
+//welcome ayush
+    document.addEventListener('DOMContentLoaded', () => {
+    const volunteerName = localStorage.getItem('userName') || 'Volunteer';
+    document.getElementById('volunteerName').textContent = volunteerName;
+});
+
 
     // Fetch Volunteer Data
     async function fetchVolunteerData() {
