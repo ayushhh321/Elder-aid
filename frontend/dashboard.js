@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Fetch Volunteers from Backend
         async function fetchVolunteers() {
             try {
-                const response = await fetch('http://localhost:3000/api/volunteers');
+                const response = await fetch('https://elder-aid.onrender.com/api/volunteers');
                 if (!response.ok) throw new Error('Failed to fetch volunteers');
       
                 const volunteers = await response.json();
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         
             try {
-                const response = await fetch('http://localhost:3000/api/tasks', {
+                const response = await fetch('https://elder-aid.onrender.com/api/tasks', {
                     method: 'POST',
                     body: formData,
                 });
