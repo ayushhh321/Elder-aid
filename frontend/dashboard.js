@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     return;
                 }
         
-                const response = await fetch(`http://localhost:3000/api/users/${elderlyId}`);
+                const response = await fetch(`https://elder-aid.onrender.com/api/users/${elderlyId}`);
                 if (!response.ok) throw new Error('Failed to fetch elderly data');
         
                 const elderlyUser = await response.json();
